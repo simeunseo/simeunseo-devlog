@@ -7,6 +7,8 @@ const CONFIG = {
     bio: "WHAT REALLY MATTERS ✨",
     email: "rkdcjfehowl@naver.com",
     github: "simeunseo",
+    linkedin: "",
+    instagram: "",
   },
   projects: [
     {
