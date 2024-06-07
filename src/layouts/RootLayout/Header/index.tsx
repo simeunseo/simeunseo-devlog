@@ -1,5 +1,5 @@
-import NavBar from "./NavBar"
 import Logo from "./Logo"
+import NavBar from "./NavBar"
 import ThemeToggle from "./ThemeToggle"
 import styled from "@emotion/styled"
 import { zIndexes } from "src/styles/zIndexes"
@@ -29,7 +29,7 @@ const StyledWrapper = styled.div`
   position: sticky;
   top: 0;
   background-color: ${({ theme }) => theme.colors.gray2};
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray5};
 
   .container {
     display: flex;
@@ -39,7 +39,7 @@ const StyledWrapper = styled.div`
     align-items: center;
     width: 100%;
     max-width: 1120px;
-    height: 3rem;
+    height: 4rem;
     margin: 0 auto;
     &[data-full-width="true"] {
       @media (min-width: 768px) {
