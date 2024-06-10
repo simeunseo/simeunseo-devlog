@@ -1,6 +1,6 @@
-import styled from "@emotion/styled"
-import React from "react"
 import { Emoji } from "src/components/Emoji"
+import React from "react"
+import styled from "@emotion/styled"
 
 type Props = {}
 
@@ -23,12 +23,11 @@ export default CustomError
 
 const StyledWrapper = styled.div`
   margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
   border-radius: 1.5rem;
-  max-width: 56rem;
   .wrapper {
     display: flex;
     padding-top: 5rem;

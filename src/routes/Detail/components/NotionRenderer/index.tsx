@@ -1,20 +1,18 @@
-import dynamic from "next/dynamic"
-import Image from "next/image"
-import Link from "next/link"
-import { ExtendedRecordMap } from "notion-types"
-import useScheme from "src/hooks/useScheme"
-
 // core styles shared by all of react-notion-x (required)
 import "react-notion-x/src/styles.css"
-
 // used for code syntax highlighting (optional)
 import "prismjs/themes/prism-tomorrow.css"
+import "katex/dist/katex.min.css"
+
+import { ExtendedRecordMap } from "notion-types"
+import { FC } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import dynamic from "next/dynamic"
+import styled from "@emotion/styled"
+import useScheme from "src/hooks/useScheme"
 
 // used for rendering equations (optional)
-
-import "katex/dist/katex.min.css"
-import { FC } from "react"
-import styled from "@emotion/styled"
 
 const _NotionRenderer = dynamic(
   () => import("react-notion-x").then((m) => m.NotionRenderer),
@@ -22,7 +20,7 @@ const _NotionRenderer = dynamic(
 )
 
 const Code = dynamic(() =>
-  import("react-notion-x/build/third-party/code").then(async (m) =>  m.Code )
+  import("react-notion-x/build/third-party/code").then(async (m) => m.Code)
 )
 
 const Collection = dynamic(() =>
@@ -84,6 +82,6 @@ const StyledWrapper = styled.div`
     display: none !important;
   }
   .notion-page {
-    padding: 0;
+    padding: 5rem 0;
   }
 `

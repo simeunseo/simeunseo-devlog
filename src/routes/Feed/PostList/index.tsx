@@ -1,8 +1,9 @@
-import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
-import PostCard from "src/routes/Feed/PostList/PostCard"
+
 import { DEFAULT_CATEGORY } from "src/constants"
+import PostCard from "src/routes/Feed/PostList/PostCard"
 import usePostsQuery from "src/hooks/usePostsQuery"
+import { useRouter } from "next/router"
 
 type Props = {
   q: string
