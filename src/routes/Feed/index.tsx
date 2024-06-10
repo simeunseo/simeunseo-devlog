@@ -59,7 +59,7 @@ const Feed: React.FC<Props> = () => {
 export default Feed
 
 const StyledWrapper = styled.div`
-  grid-template-columns: repeat(11, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 
   padding: 2rem 0;
   display: grid;
@@ -124,7 +124,7 @@ const StyledWrapper = styled.div`
 
     @media (min-width: 1024px) {
       display: block;
-      grid-column: span 2 / span 2;
+      grid-column: span 3 / span 3;
     }
 
     .footer {

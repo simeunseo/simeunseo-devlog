@@ -3,8 +3,8 @@ const CONFIG = {
   profile: {
     name: "심은서",
     image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
-    role: "web frontend developer",
-    bio: "WHAT REALLY MATTERS ✨",
+    role: "web frontend engineer",
+    bio: "WHAT REALLY MATTERS",
     email: "rkdcjfehowl@naver.com",
     github: "simeunseo",
     linkedin: "",
@@ -23,7 +23,8 @@ const CONFIG = {
   // blog setting (required)
   blog: {
     title: "simeunseo-devlog",
-    description: "안녕하세요. 개발자 심은서의 학습을 기록하는 개발 블로그입니다.",
+    description:
+      "안녕하세요. 개발자 심은서의 학습을 기록하는 개발 블로그입니다.",
     theme: "auto",
   },
 
