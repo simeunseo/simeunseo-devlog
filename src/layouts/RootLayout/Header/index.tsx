@@ -39,6 +39,9 @@ const StyledWrapper = styled.div`
     align-items: center;
     width: 100%;
     max-width: 75vw;
+    @media (max-width: 768px) {
+      max-width: 100vw;
+    }
     height: 4rem;
     margin: 0 auto;
     &[data-full-width="true"] {

@@ -23,11 +23,11 @@ export default CustomError
 
 const StyledWrapper = styled.div`
   margin: 0 auto;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 3rem;
   border-radius: 1.5rem;
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
   .wrapper {
     display: flex;
     padding-top: 5rem;

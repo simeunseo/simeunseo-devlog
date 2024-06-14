@@ -44,10 +44,7 @@ const PostDetail: React.FC<Props> = () => {
 export default PostDetail
 
 const StyledWrapper = styled.div`
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 3rem;
   border-radius: 1.5rem;
   background-color: ${({ theme }) =>
     theme.scheme === "light" ? "white" : theme.colors.gray4};
@@ -56,5 +53,9 @@ const StyledWrapper = styled.div`
   margin: 0 auto;
   > article {
     margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
   }
 `
