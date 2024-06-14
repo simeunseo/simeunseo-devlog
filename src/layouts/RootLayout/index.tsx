@@ -40,6 +40,6 @@ const StyledMain = styled.main`
 
   @media (max-width: 768px) {
     max-width: 100vw;
-    padding: 0;
+    padding: 0.8rem;
   }
 `
