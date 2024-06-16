@@ -1,6 +1,6 @@
+import React from "react"
 import styled from "@emotion/styled"
 import { useRouter } from "next/router"
-import React from "react"
 
 type Props = {
   children: string
@@ -33,4 +33,5 @@ const StyledWrapper = styled.div`
   color: ${({ theme }) => theme.colors.gray10};
   background-color: ${({ theme }) => theme.colors.gray5};
   cursor: pointer;
+  word-break: keep-all;
 `

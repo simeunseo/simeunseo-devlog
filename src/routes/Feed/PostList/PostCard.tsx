@@ -1,10 +1,10 @@
-import Link from "next/link"
 import { CONFIG } from "site.config"
-import { formatDate } from "src/libs/utils"
-import Tag from "../../../components/Tag"
-import { TPost } from "../../../types"
-import Image from "next/image"
 import Category from "../../../components/Category"
+import Image from "next/image"
+import Link from "next/link"
+import { TPost } from "../../../types"
+import Tag from "../../../components/Tag"
+import { formatDate } from "src/libs/utils"
 import styled from "@emotion/styled"
 
 type Props = {
@@ -32,7 +32,11 @@ const PostCard: React.FC<Props> = ({ data }) => {
             />
           </div>
         )}
-        <div data-thumb={!!data.thumbnail} data-category={!!category} className="content">
+        <div
+          data-thumb={!!data.thumbnail}
+          data-category={!!category}
+          className="content"
+        >
           <header className="top">
             <h2>{data.title}</h2>
           </header>
@@ -159,6 +163,10 @@ const StyledWrapper = styled(Link)`
       > .tags {
         display: flex;
         gap: 0.5rem;
+        overflow-x: scroll;
+      }
+      > .tags::-webkit-scrollbar {
+        display: none;
       }
     }
   }

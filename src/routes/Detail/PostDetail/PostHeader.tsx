@@ -1,9 +1,9 @@
 import { CONFIG } from "site.config"
-import Tag from "src/components/Tag"
-import { TPost } from "src/types"
-import { formatDate } from "src/libs/utils"
 import Image from "next/image"
 import React from "react"
+import { TPost } from "src/types"
+import Tag from "src/components/Tag"
+import { formatDate } from "src/libs/utils"
 import styled from "@emotion/styled"
 
 type Props = {
