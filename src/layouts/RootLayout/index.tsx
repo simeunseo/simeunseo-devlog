@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect } from "react"
 
+import { Analytics } from "@vercel/analytics/react"
 import Header from "./Header"
 import Prism from "prismjs/prism"
 import Scripts from "src/layouts/RootLayout/Scripts"
@@ -26,6 +27,7 @@ const RootLayout = ({ children }: Props) => {
       {/* {metaConfig.type !== "Paper" && <Header />} */}
       <Header fullWidth={false} />
       <StyledMain>{children}</StyledMain>
+      <Analytics />
     </ThemeProvider>
   )
 }
