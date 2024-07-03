@@ -82,6 +82,7 @@ const StyledWrapper = styled.div`
     display: none !important;
   }
   .notion-page {
-    padding: 5rem 0;
+    padding: 1rem 0;
+    width: 800px;
   }
 `
