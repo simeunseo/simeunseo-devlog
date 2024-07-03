@@ -85,4 +85,8 @@ const StyledWrapper = styled.div`
     padding: 1rem 0;
     width: 800px;
   }
+
+  .notion-quote {
+    font-size: inherit;
+  }
 `
