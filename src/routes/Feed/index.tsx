@@ -19,20 +19,20 @@ const Feed: React.FC<Props> = () => {
 
   return (
     <StyledWrapper>
-      <div
+      {/* <div
         className="lt"
         css={{
           height: `calc(100vh - ${HEADER_HEIGHT}px)`,
         }}
       >
         <TagList />
-      </div>
+      </div> */}
       <div className="mid">
         <MobileProfileCard />
         <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
-        <div className="tags">
+        {/* <div className="tags">
           <TagList />
-        </div>
+        </div> */}
         <FeedHeader />
         <PostList q={q} />
         <div className="footer">
@@ -89,10 +89,10 @@ const StyledWrapper = styled.div`
   }
 
   > .mid {
-    grid-column: span 12 / span 12;
+    grid-column: span 9 / span 9;
 
     @media (min-width: 1024px) {
-      grid-column: span 7 / span 7;
+      grid-column: span 9 / span 9;
     }
 
     > .tags {
@@ -112,6 +112,7 @@ const StyledWrapper = styled.div`
   }
 
   > .rt {
+    overflow: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
     &::-webkit-scrollbar {

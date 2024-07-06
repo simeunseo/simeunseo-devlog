@@ -19,6 +19,10 @@ const CONFIG = {
       name: `SOPT Playground`,
       href: "https://github.com/sopt-makers/sopt-playground-frontend",
     },
+    {
+      name: "WHERE IS POLAR",
+      href: "https://www.whereispolar.com/",
+    },
   ],
   // blog setting (required)
   blog: {
