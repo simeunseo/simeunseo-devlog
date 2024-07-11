@@ -40,6 +40,14 @@ const StyledMain = styled.main`
   max-width: 75vw;
   padding: 0 1rem;
 
+  .notion-list-numbered {
+    width: 100%;
+  }
+
+  @media (max-width: 1280px) {
+    margin: auto;
+  }
+
   @media (max-width: 768px) {
     max-width: 100vw;
     padding: 0.8rem;
