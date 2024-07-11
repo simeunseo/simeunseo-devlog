@@ -39,11 +39,12 @@ const StyledWrapper = styled.div`
     align-items: center;
     width: 100%;
     max-width: 75vw;
+    margin-left: 4rem;
     @media (max-width: 768px) {
       max-width: 100vw;
+      margin-left: 0;
     }
     height: 4rem;
-    margin-left: 4rem;
     &[data-full-width="true"] {
       @media (min-width: 768px) {
         padding-left: 6rem;
