@@ -43,7 +43,7 @@ const StyledWrapper = styled.div`
       max-width: 100vw;
     }
     height: 4rem;
-    margin: 0 auto;
+    margin-left: 4rem;
     &[data-full-width="true"] {
       @media (min-width: 768px) {
         padding-left: 6rem;

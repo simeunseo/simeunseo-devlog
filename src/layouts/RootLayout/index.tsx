@@ -35,7 +35,7 @@ const RootLayout = ({ children }: Props) => {
 export default RootLayout
 
 const StyledMain = styled.main`
-  margin: 0 auto;
+  margin-left: 4rem;
   width: 100%;
   max-width: 75vw;
   padding: 0 1rem;
