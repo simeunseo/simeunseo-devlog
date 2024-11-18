@@ -89,4 +89,8 @@ const StyledWrapper = styled.div`
   .notion-quote {
     font-size: inherit;
   }
+
+  .notion-h {
+    width: 100%;
+  }
 `
