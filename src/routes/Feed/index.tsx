@@ -13,9 +13,11 @@ import { useState } from "react"
 
 const HEADER_HEIGHT = 73
 
-type Props = {}
+type Props = {
+  isPinned?: boolean
+}
 
-const Feed: React.FC<Props> = () => {
+const Feed: React.FC<Props> = ({ isPinned }: Props) => {
   const [q, setQ] = useState("")
 
   return (
@@ -26,34 +28,42 @@ const Feed: React.FC<Props> = () => {
           height: `calc(100vh - ${HEADER_HEIGHT}px)`,
         }}
       >
-        <TagList />
+        {!isPinned && <TagList />}
       </div>
       <div className="mid">
-        <MobileProfileCard />
-        <PinnedPosts q={q} />
-        <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
         {/* <div className="tags">
           <TagList />
         </div> */}
-        <FeedHeader />
-        <PostList q={q} />
-        <div className="footer">
-          <Footer />
-        </div>
+
+        {isPinned ? (
+          <PinnedPosts q={q} />
+        ) : (
+          <>
+            <MobileProfileCard />
+            <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
+            <FeedHeader />
+            <PostList q={q} />
+            <div className="footer">
+              <Footer />
+            </div>
+          </>
+        )}
       </div>
-      <div
-        className="rt"
-        css={{
-          height: `calc(100vh - ${HEADER_HEIGHT}px)`,
-        }}
-      >
-        <ProfileCard />
-        <ServiceCard />
-        <ContactCard />
-        <div className="footer">
-          <Footer />
+      {!isPinned && (
+        <div
+          className="rt"
+          css={{
+            height: `calc(100vh - ${HEADER_HEIGHT}px)`,
+          }}
+        >
+          <ProfileCard />
+          <ServiceCard />
+          <ContactCard />
+          <div className="footer">
+            <Footer />
+          </div>
         </div>
-      </div>
+      )}
     </StyledWrapper>
   )
 }

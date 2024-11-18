@@ -15,7 +15,7 @@ const Header: React.FC<Props> = ({ fullWidth }) => {
         <Logo />
         <div className="nav">
           {/* <ThemeToggle /> */}
-          {/* <NavBar /> */}
+          <NavBar />
         </div>
       </div>
     </StyledWrapper>
@@ -39,7 +39,7 @@ const StyledWrapper = styled.div`
     align-items: center;
     width: 100%;
     max-width: 75vw;
-    margin-left: 4rem;
+    margin: auto;
     @media (max-width: 768px) {
       max-width: 100vw;
       margin-left: 0;
