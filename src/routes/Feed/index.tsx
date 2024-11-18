@@ -3,6 +3,7 @@ import { FeedHeader } from "./FeedHeader"
 import Footer from "./Footer"
 import MobileProfileCard from "./MobileProfileCard"
 import PostList from "./PostList"
+import PinnedPosts from "./PostList/PinnedPost"
 import ProfileCard from "./ProfileCard"
 import SearchInput from "./SearchInput"
 import ServiceCard from "./ServiceCard"
@@ -29,6 +30,7 @@ const Feed: React.FC<Props> = () => {
       </div>
       <div className="mid">
         <MobileProfileCard />
+        <PinnedPosts q={q} />
         <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
         {/* <div className="tags">
           <TagList />
