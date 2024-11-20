@@ -4,6 +4,7 @@ import usePostsQuery from "src/hooks/usePostsQuery"
 import styled from "@emotion/styled"
 import { filterPosts } from "./FilterPosts"
 import { DEFAULT_CATEGORY } from "src/constants"
+import Link from "next/link"
 
 type Props = {
   q: string
@@ -28,6 +29,9 @@ const PinnedPosts: React.FC<Props> = ({ q }) => {
     <StyledWrapper>
       <div className="wrapper">
         <div className="header">📌 Pinned Posts</div>
+        <div className="text">
+          <Link href="/">전체 게시글 보러가기</Link>
+        </div>
       </div>
       <div className="my-2">
         {filteredPosts.map((post) => (
@@ -59,5 +63,19 @@ const StyledWrapper = styled.div`
     line-height: 1.75rem;
     font-weight: 700;
     cursor: pointer;
+  }
+  .text {
+    display: flex;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    gap: 0.25rem;
+    align-items: center;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    cursor: pointer;
+    :hover {
+      text-decoration: underline;
+    }
   }
 `
