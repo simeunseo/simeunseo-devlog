@@ -73,10 +73,8 @@ const StyledWrapper = styled.div`
       }
       .bio {
         margin-bottom: 0.5rem;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-        white-space: pre-wrap;
-        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5rem;
       }
     }
   }

@@ -5,6 +5,7 @@ import styled from "@emotion/styled"
 import { filterPosts } from "./FilterPosts"
 import { DEFAULT_CATEGORY } from "src/constants"
 import Link from "next/link"
+import { CONFIG } from "site.config"
 
 type Props = {
   q: string
@@ -32,6 +33,9 @@ const PinnedPosts: React.FC<Props> = ({ q }) => {
         <div className="text">
           <Link href="/">전체 게시글 보러가기</Link>
         </div>
+      </div>
+      <div>
+        <div className="bio">{CONFIG.profile.bio}</div>
       </div>
       <div className="my-2">
         {filteredPosts.map((post) => (
@@ -77,5 +81,16 @@ const StyledWrapper = styled.div`
     :hover {
       text-decoration: underline;
     }
+  }
+  .bio {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    border: 1px solid ${({ theme }) => theme.colors.gray6};
+    border-radius: 1rem;
+    line-height: 2rem;
+    white-space: pre-wrap;
+    font-weight: 500;
   }
 `
