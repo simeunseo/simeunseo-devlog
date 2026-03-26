@@ -1,11 +1,12 @@
-import PostCard from "src/routes/Feed/PostList/PostCard"
 import React, { useMemo } from "react"
-import usePostsQuery from "src/hooks/usePostsQuery"
-import styled from "@emotion/styled"
-import { filterPosts } from "./FilterPosts"
+
+import { CONFIG } from "site.config"
 import { DEFAULT_CATEGORY } from "src/constants"
 import Link from "next/link"
-import { CONFIG } from "site.config"
+import PostCard from "src/routes/Feed/PostList/PostCard"
+import { filterPosts } from "./FilterPosts"
+import styled from "@emotion/styled"
+import usePostsQuery from "src/hooks/usePostsQuery"
 
 type Props = {
   q: string
@@ -33,9 +34,6 @@ const PinnedPosts: React.FC<Props> = ({ q }) => {
         <div className="text">
           <Link href="/">전체 게시글 보러가기</Link>
         </div>
-      </div>
-      <div>
-        <div className="bio">{CONFIG.profile.bio}</div>
       </div>
       <div className="my-2">
         {filteredPosts.map((post) => (
