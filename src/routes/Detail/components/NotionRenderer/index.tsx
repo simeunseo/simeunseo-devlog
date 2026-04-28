@@ -5,7 +5,7 @@ import "prismjs/themes/prism-tomorrow.css"
 import "katex/dist/katex.min.css"
 
 import { ExtendedRecordMap } from "notion-types"
-import { FC } from "react"
+import { FC, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import dynamic from "next/dynamic"
@@ -54,11 +54,32 @@ type Props = {
 
 const NotionRenderer: FC<Props> = ({ recordMap }) => {
   const [scheme] = useScheme()
+  const sanitizedRecordMap = useMemo(() => {
+    const nextBlock = Object.fromEntries(
+      Object.entries(recordMap?.block ?? {}).flatMap(([blockKey, block]: any) => {
+        const rawValue = block?.value?.value ?? block?.value
+        if (!rawValue || typeof rawValue !== "object") return []
+
+        const normalizedValue = {
+          ...rawValue,
+          id: rawValue?.id ?? blockKey,
+        }
+
+        return [[blockKey, { ...block, value: normalizedValue }]]
+      })
+    ) as ExtendedRecordMap["block"]
+
+    return {
+      ...recordMap,
+      block: nextBlock,
+    }
+  }, [recordMap])
+
   return (
     <StyledWrapper>
       <_NotionRenderer
         darkMode={scheme === "dark"}
-        recordMap={recordMap}
+        recordMap={sanitizedRecordMap}
         components={{
           Code,
           Collection,

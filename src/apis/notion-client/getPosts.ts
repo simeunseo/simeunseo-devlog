@@ -1,6 +1,7 @@
 import { CONFIG } from "site.config"
 import { CustomExtendedRecordMap } from "src/types/notion.type"
 import { NotionAPI } from "notion-client"
+import { ID } from "notion-types"
 import { TPosts } from "src/types"
 import getAllPageIds from "src/libs/utils/notion/getAllPageIds"
 import getPageProperties from "src/libs/utils/notion/getPageProperties"
@@ -29,7 +30,49 @@ export const getPosts = async () => {
     return []
   } else {
     // Construct Data
-    const pageIds = getAllPageIds(response)
+    let pageIds = getAllPageIds(response)
+    const collectionId = rawMetadata?.value?.collection_id as string | undefined
+    const viewIds = (rawMetadata?.value?.view_ids ?? []) as string[]
+    const extractBlockIdsDeep = (input: any): ID[] => {
+      const result = new Set<ID>()
+      const walk = (node: any) => {
+        if (!node) return
+        if (Array.isArray(node)) {
+          node.forEach(walk)
+          return
+        }
+        if (typeof node !== "object") return
+        if (Array.isArray((node as any).blockIds)) {
+          ;(node as any).blockIds.forEach((id: ID) => result.add(id))
+        }
+        Object.values(node).forEach(walk)
+      }
+      walk(input)
+      return [...result]
+    }
+
+    if (pageIds.length === 0 && collectionId && viewIds.length > 0) {
+      const fallbackPageSet = new Set<ID>()
+      for (const viewId of viewIds) {
+        const collectionView = (response as any)?.collection_view?.[viewId]?.value
+        const collectionData = await api.getCollectionData(
+          collectionId,
+          viewId,
+          collectionView,
+          { limit: 1000 }
+        )
+        const candidateBlockIds = extractBlockIdsDeep(collectionData) as ID[]
+        candidateBlockIds.forEach((rowId) => fallbackPageSet.add(rowId))
+      }
+      pageIds = [...fallbackPageSet]
+    }
+    const missingBlockIds = pageIds.filter((pageId) => !block[pageId])
+
+    if (missingBlockIds.length > 0) {
+      const missingBlocksChunk = await api.getBlocks(missingBlockIds)
+      const fetchedBlocks = missingBlocksChunk?.recordMap?.block ?? {}
+      Object.assign(block, fetchedBlocks)
+    }
     const data = []
     for (let i = 0; i < pageIds.length; i++) {
       const id = pageIds[i]
@@ -51,7 +94,15 @@ export const getPosts = async () => {
       return dateB - dateA
     })
 
-    const posts = data as TPosts
+    const posts = data.map((post: any) => ({
+      ...post,
+      author: Array.isArray(post?.author)
+        ? post.author.map((author: any) => ({
+            ...author,
+            id: author?.id ?? null,
+          }))
+        : post?.author,
+    })) as TPosts
     return posts
   }
 }
